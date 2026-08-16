@@ -1,1 +1,413 @@
-El Gordo Gekko
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>El Gordo Gekko — a personal trading-bot experiment</title>
+<meta name="description" content="El Gordo Gekko (EGG) is a personal, single-user trading-bot platform: a headless engine that runs grid, DCA and market-maker strategies 24/7 against a real broker. An experiment — not publicly available.">
+<meta name="theme-color" content="#0d0b09">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="El Gordo Gekko — a personal trading-bot experiment">
+<meta property="og:description" content="A headless engine running grid, DCA and market-maker bots 24/7. An experiment — not publicly available.">
+<meta property="og:image" content="assets/img/el-gordo-gekko.png">
+
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="preload" as="image" href="assets/img/el-gordo-gekko.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="nav" id="nav">
+  <div class="wrap nav__inner">
+    <a class="brand" href="#top">
+      <span class="brand__crown" aria-hidden="true">♛</span>
+      <span class="brand__text">EL GORDO <b>GEKKO</b></span>
+    </a>
+
+    <button class="nav__toggle" id="navToggle" aria-expanded="false" aria-controls="navLinks" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+
+    <nav class="nav__links" id="navLinks" aria-label="Main">
+      <a href="#what">What it is</a>
+      <a href="#strategies">Strategies</a>
+      <a href="#how">How it works</a>
+      <a href="#stack">Under the hood</a>
+      <a href="#gecko">The Fat Gecko</a>
+      <a href="#status" class="nav__cta">Status</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ───────────────────────── HERO ───────────────────────── -->
+  <section class="hero" id="top">
+    <div class="hero__glow" aria-hidden="true"></div>
+    <div class="wrap hero__inner">
+
+      <div class="hero__copy">
+        <p class="eyebrow"><span class="dot"></span> Personal experiment · not publicly available</p>
+        <h1 class="hero__title">
+          <span class="hero__title-sm">El Gordo</span>
+          <span class="hero__title-lg">Gekko</span>
+        </h1>
+        <p class="hero__tag">Buy low. Sell high. Laugh always.</p>
+        <p class="hero__lede">
+          A single-user trading-bot platform. A headless engine ticks <b>24/7</b> against a live
+          broker account, running grid, DCA and market-maker strategies on USD-denominated
+          instruments — while a thin web client just watches.
+        </p>
+        <div class="hero__actions">
+          <a class="btn btn--primary" href="#what">See what it does</a>
+          <a class="btn btn--ghost" href="#status">Can I use it?</a>
+        </div>
+
+        <ul class="hero__stats">
+          <li><b>30s</b><span>engine tick</span></li>
+          <li><b>3</b><span>strategies</span></li>
+          <li><b>1</b><span>writer, ever</span></li>
+        </ul>
+      </div>
+
+      <figure class="hero__art">
+        <img src="assets/img/el-gordo-gekko.png"
+             alt="El Gordo Gekko: a heavyset gecko in a suit, sunglasses and cigar, reclining in a leather chair in front of trading screens while dollar bills rain down."
+             width="1254" height="1254" fetchpriority="high">
+        <figcaption>The boss. Guardian of the bots.</figcaption>
+      </figure>
+
+    </div>
+
+    <div class="tape" aria-hidden="true">
+      <div class="tape__track" id="tapeTrack"></div>
+    </div>
+  </section>
+
+  <!-- ───────────────────────── WHAT ───────────────────────── -->
+  <section class="section" id="what">
+    <div class="wrap">
+      <p class="kicker">01 — What it is</p>
+      <h2 class="h2">A trading desk that never sleeps, built for exactly one person.</h2>
+      <p class="lead">
+        EGG is not a product, a signal service or a fund. It is a personal engineering project:
+        an always-on process that places, tracks and reconciles real limit orders according to
+        rules I wrote, and then shows me — honestly — what those rules actually earned.
+      </p>
+
+      <div class="cards">
+        <article class="card">
+          <span class="card__ico" aria-hidden="true">⚙</span>
+          <h3>Always on</h3>
+          <p>The engine lives in a headless Node server, not in a browser tab. Close the laptop lid on the client and the bots keep ticking every 30 seconds.</p>
+        </article>
+        <article class="card">
+          <span class="card__ico" aria-hidden="true">🗄</span>
+          <h3>One source of truth</h3>
+          <p>Every bot, order, fill, trade and event is persisted in a local SQLite file in a single atomic transaction. The database <em>is</em> the backup.</p>
+        </article>
+        <article class="card">
+          <span class="card__ico" aria-hidden="true">🔍</span>
+          <h3>Reconciled, not trusted</h3>
+          <p>Every 10 minutes EGG compares its own state against the broker and flags the result <b>Synced</b>, <b>Warning</b> or <b>Diverged</b>. Drift gets caught, not lost.</p>
+        </article>
+        <article class="card">
+          <span class="card__ico" aria-hidden="true">🩹</span>
+          <h3>Self-healing</h3>
+          <p>A failing tick is treated as transient and retried. A bot flagged <code>error</code> is not dead — it backs off and retries, so an outage heals without a human.</p>
+        </article>
+        <article class="card">
+          <span class="card__ico" aria-hidden="true">📊</span>
+          <h3>Research built in</h3>
+          <p>A grid optimizer walks historical intraday tape, sweeps candidate step sizes, and ranks tickers by net dollars per day at <em>equal capital</em> — costs and fees included.</p>
+        </article>
+        <article class="card">
+          <span class="card__ico" aria-hidden="true">🧾</span>
+          <h3>Fees are not a rounding error</h3>
+          <p>Commissions are baked into average cost and into every realized-profit number. A "winning" round trip that lost money after fees is shown as what it is: a loss.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───────────────────────── STRATEGIES ───────────────────────── -->
+  <section class="section section--alt" id="strategies">
+    <div class="wrap">
+      <p class="kicker">02 — Strategies</p>
+      <h2 class="h2">Three ways to be patient with a market.</h2>
+      <p class="lead">
+        Each strategy is a <b>pure decision function</b>: hand it a config, a state and a market
+        context, and it returns the next state plus a list of order intents. It never talks to a
+        broker, never touches a clock, never throws a network error. That is what makes it testable.
+      </p>
+
+      <div class="strats">
+        <article class="strat">
+          <header>
+            <span class="strat__num">01</span>
+            <h3>Grid</h3>
+          </header>
+          <p class="strat__sum">Slice a price range into rungs. Buy each rung on the way down, sell it one step up.</p>
+          <ul>
+            <li>A seed purchase backs the sell side; a fresh grid <b>re-anchors on the seed fill price</b>.</li>
+            <li>Every rung is an independent little machine: <code>empty → buying → selling → empty</code>.</li>
+            <li>Each completed round trip books profit net of the sell fee <em>and</em> a proportional share of the buy fee.</li>
+            <li>Self-heals every tick: a rung missing the order it should have simply places it again.</li>
+          </ul>
+        </article>
+
+        <article class="strat">
+          <header>
+            <span class="strat__num">02</span>
+            <h3>DCA</h3>
+          </header>
+          <p class="strat__sum">Buy a fixed dollar amount on a fixed schedule. No cleverness. That is the point.</p>
+          <ul>
+            <li>Hourly, daily, weekly or monthly — as many whole units as the budget buys.</li>
+            <li>Refuses to buy a fraction, and refuses to breach the configured capital ceiling.</li>
+            <li>After a long shutdown it catches up <b>once</b> — never a retroactive backlog of orders.</li>
+            <li>Running average cost is recomputed fee-inclusive on every fill.</li>
+          </ul>
+        </article>
+
+        <article class="strat">
+          <header>
+            <span class="strat__num">03</span>
+            <h3>Market Maker</h3>
+          </header>
+          <p class="strat__sum">Quote both sides of the spread and get paid for standing still.</p>
+          <ul>
+            <li>Bid and ask sit symmetrically around mid — limit orders only, never market.</li>
+            <li>Never shorts: the ask only rests while there is real inventory behind it.</li>
+            <li>The ask is floored at average cost, so capturing a spread can't quietly realize a loss.</li>
+            <li>Requotes on a timer, or immediately when mid drifts more than half a spread.</li>
+          </ul>
+        </article>
+      </div>
+
+      <p class="note">
+        There was a fourth, <code>bondiola</code> — flip a held position inside a fixed price band.
+        It went unused, so it was deleted: type, form, wizard card, command and route. Dead
+        strategies are worse than no strategy.
+      </p>
+    </div>
+  </section>
+
+  <!-- ───────────────────────── HOW ───────────────────────── -->
+  <section class="section" id="how">
+    <div class="wrap">
+      <p class="kicker">03 — How it works</p>
+      <h2 class="h2">One engine. One writer. One transaction.</h2>
+
+      <div class="how">
+        <div class="how__diagram" role="img" aria-label="Architecture: a browser thin client talks over REST and SSE to a Node server that runs the trading engine, persists to SQLite, and calls the broker API.">
+          <div class="box box--client">
+            <h4>Browser · thin client</h4>
+            <p>React + charts</p>
+            <p class="muted">reads over HTTP · live quotes over SSE</p>
+            <p class="muted">no engine here</p>
+          </div>
+          <div class="wire"><span>REST + SSE</span></div>
+          <div class="box box--server">
+            <h4>Node server · always on</h4>
+            <p>Trading engine + scheduler</p>
+            <p>Bot service · price feed · reconciliation</p>
+            <p class="muted">SQLite (WAL) — source of truth</p>
+            <p class="muted">calls the broker API directly</p>
+          </div>
+        </div>
+
+        <ol class="ticks">
+          <li>
+            <b>Poll.</b> Every 30 seconds the engine fetches fresh quotes and the broker's list of
+            resting orders.
+          </li>
+          <li>
+            <b>Detect fills.</b> Fills — including partial ones — are applied to the position
+            <em>before</em> any strategy runs, so a strategy always decides against reality.
+          </li>
+          <li>
+            <b>Decide.</b> The pure strategy function returns the next state, the order intents and
+            the events to log. No side effects.
+          </li>
+          <li>
+            <b>Execute.</b> The engine places or cancels orders against a <code>BrokerProvider</code>
+            port. It does not know or care which broker is on the other end.
+          </li>
+          <li>
+            <b>Commit.</b> State, orders, trades and events land in SQLite in one atomic write. A
+            crash mid-tick resumes cleanly; nothing is half-applied.
+          </li>
+        </ol>
+      </div>
+
+      <div class="rules">
+        <h3 class="h3">Rules the whole thing is built on</h3>
+        <div class="rules__grid">
+          <div class="rule">
+            <h4>Single writer, above all else</h4>
+            <p>Exactly one engine may tick, and the server is that engine. Two engines on one live account means double-placed real orders — so there is only ever one.</p>
+          </div>
+          <div class="rule">
+            <h4>Orders are referenced by tag</h4>
+            <p><code>grid-buy-3</code>, <code>dca-buy</code>, <code>mm-bid</code> — never by broker id. Runtime state stays plain JSON, which is why it survives a restart.</p>
+          </div>
+          <div class="rule">
+            <h4>The broker is a peer, not the truth</h4>
+            <p>SQLite holds the truth; broker data is used to <em>check</em> it. Disagreement raises a reconciliation flag instead of silently overwriting history.</p>
+          </div>
+          <div class="rule">
+            <h4>Nothing is ever deleted</h4>
+            <p>Resetting a bot archives the cycle and starts the strategy over. Trades, events and snapshots are kept — the record outlives the experiment that produced it.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───────────────────────── STACK ───────────────────────── -->
+  <section class="section section--alt" id="stack">
+    <div class="wrap">
+      <p class="kicker">04 — Under the hood</p>
+      <h2 class="h2">Ports and adapters, taken seriously.</h2>
+      <p class="lead">
+        EGG started as a browser-only app with the engine in a tab. Moving it server-side was ops,
+        not a rewrite: the pure domain ran unchanged in Node, and only the persistence adapter and
+        the UI's data layer had to change. That is the whole argument for the architecture, and it
+        got tested for real.
+      </p>
+
+      <div class="layers">
+        <div class="layer">
+          <h4><code>domain/</code></h4>
+          <p>Pure TypeScript. Engine, strategies, state machine, analytics, reconciliation, research math — and the ports. Forbidden by lint rule from importing React, HTTP or any database.</p>
+        </div>
+        <div class="layer">
+          <h4><code>application/</code></h4>
+          <p>Composition root and engine wiring. Bot service, price feed, MEP and account-value services, API metering.</p>
+        </div>
+        <div class="layer">
+          <h4><code>infrastructure/</code></h4>
+          <p>The adapters: SQLite persistence and the broker client. Swapping brokers touches two files, because everything upstream depends only on the port.</p>
+        </div>
+        <div class="layer">
+          <h4><code>server/</code></h4>
+          <p>Node entrypoint. Boots the services against SQLite, mounts the REST + SSE API, serves the client, shuts down gracefully.</p>
+        </div>
+        <div class="layer">
+          <h4><code>ui/</code></h4>
+          <p>React, a query cache and charts. A pure HTTP client — it renders what the server says and has no opinions of its own.</p>
+        </div>
+      </div>
+
+      <ul class="chips" aria-label="Technologies">
+        <li>TypeScript</li><li>Node</li><li>Express</li><li>SQLite · WAL</li>
+        <li>React</li><li>Server-Sent Events</li><li>Vitest</li><li>Vite</li>
+      </ul>
+
+      <div class="deploy">
+        <h3 class="h3">Where it lives</h3>
+        <p>
+          A spare laptop that never sleeps, reachable only over a private mesh network. Access
+          control is network membership — the server is not exposed to the public internet, and it
+          is not going to be. Credentials live in one environment file and never touch the
+          database or a backup.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───────────────────────── GECKO ───────────────────────── -->
+  <section class="section" id="gecko">
+    <div class="wrap">
+      <p class="kicker">05 — The Fat Gecko</p>
+      <h2 class="h2">Bottom-right corner. Guardian of the bots.</h2>
+      <p class="lead">
+        Every serious system deserves one unserious feature. He reacts to fills, errors and resets,
+        and dispenses questionable financial wisdom every few minutes. He can be muted in Settings,
+        but he will remember.
+      </p>
+
+      <div class="gallery" id="gallery">
+        <figure class="shot">
+          <img src="assets/img/gekko-street.png" loading="lazy" width="1086" height="1448"
+               alt="A small ragged gecko presses a hand against the rain-streaked window of Gekko Capital Investments, watching a prosperous gecko inside; a cardboard sign reads 'algún día seré rico'.">
+          <figcaption><b>Someday</b> — where everyone starts.</figcaption>
+        </figure>
+        <figure class="shot">
+          <img src="assets/img/gekko-golf.png" loading="lazy" width="1484" height="1060"
+               alt="The gecko mid golf swing at sunset, with a branded billboard reading buy low, sell high, laugh always.">
+          <figcaption><b>Discipline</b> — the strategy runs itself.</figcaption>
+        </figure>
+        <figure class="shot">
+          <img src="assets/img/gekko-sauna.png" loading="lazy" width="1122" height="1402"
+               alt="The gecko relaxing in a sauna with a plaque reading discipline, patience, control, profits, and a phone showing a green chart.">
+          <figcaption><b>Patience</b> — the hard part.</figcaption>
+        </figure>
+        <figure class="shot">
+          <img src="assets/img/gekko-jet.png" loading="lazy" width="1122" height="1402"
+               alt="The gecko in sunglasses walking away from a private jet with branded luggage full of cash.">
+          <figcaption><b>Ambition</b> — strictly hypothetical.</figcaption>
+        </figure>
+      </div>
+      <p class="note">Yes, the gecko is aspirational. No, the returns are not.</p>
+    </div>
+  </section>
+
+  <!-- ───────────────────────── STATUS ───────────────────────── -->
+  <section class="section section--status" id="status">
+    <div class="wrap">
+      <div class="status">
+        <p class="kicker">06 — Availability</p>
+        <h2 class="h2">This is an experiment. It is not available to the public.</h2>
+
+        <div class="status__body">
+          <p>
+            There is no sign-up, no waitlist, no download, no invite, and no paid tier. EGG runs on
+            one machine, against one brokerage account, for one person. It was built to answer a
+            question I had about market microstructure and my own discipline — not to be sold.
+          </p>
+          <ul class="status__list">
+            <li><span class="x">✕</span> Not a licensed or registered financial service of any kind.</li>
+            <li><span class="x">✕</span> Not investment advice, a recommendation, or a performance claim.</li>
+            <li><span class="x">✕</span> Not multi-tenant — the entire design assumes a single user and a single writer.</li>
+            <li><span class="x">✕</span> Not audited, not battle-tested, and not something to point at real money you need.</li>
+            <li><span class="check">✓</span> A real system placing real orders, which is exactly why the caution above is not boilerplate.</li>
+          </ul>
+          <p class="status__foot">
+            Automated trading can lose money quickly, including more than you planned to risk.
+            Anything described on this page is a description of a personal project, nothing more.
+            If that changes, this page will say so.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap footer__inner">
+    <div class="footer__brand">
+      <span class="brand__crown" aria-hidden="true">♛</span>
+      <span>EL GORDO <b>GEKKO</b></span>
+    </div>
+    <p class="footer__note">A personal trading-bot experiment. Not a product, not advice, not for sale.</p>
+    <p class="footer__copy">© <span id="year">2026</span> · Built for one user, one account, one gecko.</p>
+  </div>
+</footer>
+
+<div class="lightbox" id="lightbox" hidden>
+  <button class="lightbox__close" id="lightboxClose" aria-label="Close image">✕</button>
+  <img id="lightboxImg" src="" alt="">
+</div>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>

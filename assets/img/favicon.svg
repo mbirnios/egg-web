@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <rect width="64" height="64" rx="12" fill="#0b0908"/>
+  <path d="M12 22 L20 14 L26 20 L32 10 L38 20 L44 14 L52 22 L48 26 L16 26 Z" fill="#e8b23c"/>
+  <text x="32" y="52" font-family="Impact, 'Arial Narrow', sans-serif" font-size="30"
+        fill="#f07a26" text-anchor="middle" letter-spacing="1">EGG</text>
+</svg>
