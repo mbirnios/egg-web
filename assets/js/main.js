@@ -56,8 +56,8 @@
 
   /* ── reveal on scroll ─────────────────────────────────────── */
   var revealables = document.querySelectorAll(
-    '.section .kicker, .section .h2, .section .lead, .card, .strat, ' +
-    '.how__diagram, .ticks li, .rules, .layer, .chips, .deploy, .shot, .status__body, .note'
+    '.section .kicker, .section .h2, .section .lead, .figure-frame, ' +
+    '.prose, .creed__inner, .autor__pic, .shot, .status__body, .note'
   );
 
   if (reduceMotion || !('IntersectionObserver' in window)) {
@@ -74,24 +74,22 @@
     Array.prototype.forEach.call(revealables, function (el) { io.observe(el); });
   }
 
-  /* ── decorative ticker tape ───────────────────────────────────
-     Illustrative only — these are not quotes, positions or results. */
+  /* ── cinta decorativa ─────────────────────────────────────────
+     Solo ilustrativa: no son cotizaciones, posiciones ni resultados. */
   var tape = document.getElementById('tapeTrack');
   if (tape) {
     var items = [
-      ['GRID', 'rung 4 filled', 'up'],
-      ['DCA', 'weekly buy placed', ''],
-      ['MM', 'spread captured', 'up'],
-      ['ENGINE', 'tick 30s', ''],
-      ['RECON', 'synced', 'up'],
-      ['GRID', 'round trip closed', 'up'],
-      ['ORDERS', 'limit only', ''],
-      ['MM', 'requote · mid drift', ''],
-      ['SQLITE', 'committed', ''],
-      ['DCA', 'skipped · under 1 unit', 'dn'],
-      ['GRID', 'self-heal · rung repriced', ''],
-      ['FEES', 'included, always', 'dn'],
-      ['STATUS', 'experiment · not public', '']
+      ['GRID', 'escalón 4 ejecutado', 'up'],
+      ['ÓRDENES', 'solo límite', ''],
+      ['GRID', 'round trip cerrado', 'up'],
+      ['GRID', 'compra en 14,20', 'up'],
+      ['IOL API', 'invertironline · conectado', 'up'],
+      ['GRID', 'escalón recolocado', ''],
+      ['GRID', 'venta con piso en el costo', ''],
+      ['CORTO', 'nunca', ''],
+      ['COMISIONES', 'siempre incluidas', 'dn'],
+      ['PACIENCIA', 'el activo más escaso', ''],
+      ['ESTADO', 'experimento · no público', '']
     ];
 
     var html = items.map(function (it) {
@@ -126,23 +124,20 @@
     if (lastFocus && lastFocus.focus) lastFocus.focus();
   }
 
-  var gallery = document.getElementById('gallery');
-  if (gallery) {
-    Array.prototype.forEach.call(gallery.querySelectorAll('.shot'), function (shot) {
-      var img = shot.querySelector('img');
-      if (!img) return;
-      shot.setAttribute('tabindex', '0');
-      shot.setAttribute('role', 'button');
-      shot.setAttribute('aria-label', 'Enlarge image');
-      shot.addEventListener('click', function () { openLightbox(img); });
-      shot.addEventListener('keydown', function (e) {
-        if (e.key === 'Enter' || e.key === ' ') {
-          e.preventDefault();
-          openLightbox(img);
-        }
-      });
+  Array.prototype.forEach.call(document.querySelectorAll('#gallery .shot, .zoomable'), function (fig) {
+    var img = fig.querySelector('img');
+    if (!img) return;
+    fig.setAttribute('tabindex', '0');
+    fig.setAttribute('role', 'button');
+    fig.setAttribute('aria-label', 'Ampliar imagen');
+    fig.addEventListener('click', function () { openLightbox(img); });
+    fig.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        openLightbox(img);
+      }
     });
-  }
+  });
 
   if (lightboxClose) lightboxClose.addEventListener('click', hideLightbox);
   if (lightbox) {

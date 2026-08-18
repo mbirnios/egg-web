@@ -1,15 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>El Gordo Gekko — a personal trading-bot experiment</title>
-<meta name="description" content="El Gordo Gekko (EGG) is a personal, single-user trading-bot platform: a headless engine that runs grid, DCA and market-maker strategies 24/7 against a real broker. An experiment — not publicly available.">
+<title>El Gordo Gekko — un experimento personal de trading automático</title>
+<meta name="description" content="El Gordo Gekko (EGG) es una plataforma personal de trading bots para un solo usuario: un motor headless que hace grid trading contra una cuenta real, operando a través de la API de IOL (Invertir Online). Un experimento — no está disponible al público. Por MNB.">
+<meta name="author" content="MNB">
 <meta name="theme-color" content="#0d0b09">
 
 <meta property="og:type" content="website">
-<meta property="og:title" content="El Gordo Gekko — a personal trading-bot experiment">
-<meta property="og:description" content="A headless engine running grid, DCA and market-maker bots 24/7. An experiment — not publicly available.">
+<meta property="og:locale" content="es_AR">
+<meta property="og:title" content="El Gordo Gekko — un experimento personal de trading automático">
+<meta property="og:description" content="Comprar barato. Vender caro. Reírse siempre. Un motor headless que hace grid trading sobre la API de IOL (Invertir Online). Un experimento — no está disponible al público.">
 <meta property="og:image" content="assets/img/el-gordo-gekko.png">
 
 <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
@@ -21,7 +23,7 @@
 </head>
 <body>
 
-<a class="skip-link" href="#main">Skip to content</a>
+<a class="skip-link" href="#main">Saltar al contenido</a>
 
 <header class="nav" id="nav">
   <div class="wrap nav__inner">
@@ -30,17 +32,14 @@
       <span class="brand__text">EL GORDO <b>GEKKO</b></span>
     </a>
 
-    <button class="nav__toggle" id="navToggle" aria-expanded="false" aria-controls="navLinks" aria-label="Toggle menu">
+    <button class="nav__toggle" id="navToggle" aria-expanded="false" aria-controls="navLinks" aria-label="Abrir menú">
       <span></span><span></span><span></span>
     </button>
 
-    <nav class="nav__links" id="navLinks" aria-label="Main">
-      <a href="#what">What it is</a>
-      <a href="#strategies">Strategies</a>
-      <a href="#how">How it works</a>
-      <a href="#stack">Under the hood</a>
-      <a href="#gecko">The Fat Gecko</a>
-      <a href="#status" class="nav__cta">Status</a>
+    <nav class="nav__links" id="navLinks" aria-label="Principal">
+      <a href="#what">Qué hace</a>
+      <a href="#gecko">Conocé al Gordo</a>
+      <a href="#status" class="nav__cta">¿Puedo usarlo?</a>
     </nav>
   </div>
 </header>
@@ -53,34 +52,28 @@
     <div class="wrap hero__inner">
 
       <div class="hero__copy">
-        <p class="eyebrow"><span class="dot"></span> Personal experiment · not publicly available</p>
+        <p class="eyebrow"><span class="dot"></span> Experimento personal · no está disponible al público</p>
         <h1 class="hero__title">
           <span class="hero__title-sm">El Gordo</span>
           <span class="hero__title-lg">Gekko</span>
         </h1>
-        <p class="hero__tag">Buy low. Sell high. Laugh always.</p>
+        <p class="hero__tag">Comprar barato. Vender caro. Reírse siempre.</p>
+        <p class="hero__byline">por <b>MNB</b></p>
         <p class="hero__lede">
-          A single-user trading-bot platform. A headless engine ticks <b>24/7</b> against a live
-          broker account, running grid, DCA and market-maker strategies on USD-denominated
-          instruments — while a thin web client just watches.
+          Una plataforma de trading bots de para un solo usuario, contra una cuenta real de broker (<b>API de IOL</b>) corriendo estrategia de grid sobre instrumentos en dólares.
         </p>
         <div class="hero__actions">
-          <a class="btn btn--primary" href="#what">See what it does</a>
-          <a class="btn btn--ghost" href="#status">Can I use it?</a>
+          <a class="btn btn--primary" href="#what">Ver qué hace</a>
+          <a class="btn btn--ghost" href="#status">¿Puedo usarlo?</a>
         </div>
 
-        <ul class="hero__stats">
-          <li><b>30s</b><span>engine tick</span></li>
-          <li><b>3</b><span>strategies</span></li>
-          <li><b>1</b><span>writer, ever</span></li>
-        </ul>
       </div>
 
       <figure class="hero__art">
         <img src="assets/img/el-gordo-gekko.png"
-             alt="El Gordo Gekko: a heavyset gecko in a suit, sunglasses and cigar, reclining in a leather chair in front of trading screens while dollar bills rain down."
+             alt="El Gordo Gekko: un gecko corpulento de traje, anteojos negros y habano, recostado en un sillón de cuero frente a pantallas de trading mientras llueven billetes de dólar."
              width="1254" height="1254" fetchpriority="high">
-        <figcaption>The boss. Guardian of the bots.</figcaption>
+        <figcaption>Comprar barato. Vender caro. Reírse siempre.</figcaption>
       </figure>
 
     </div>
@@ -91,272 +84,114 @@
   </section>
 
   <!-- ───────────────────────── WHAT ───────────────────────── -->
-  <section class="section" id="what">
+  <section class="section section--alt" id="what">
     <div class="wrap">
-      <p class="kicker">01 — What it is</p>
-      <h2 class="h2">A trading desk that never sleeps, built for exactly one person.</h2>
-      <p class="lead">
-        EGG is not a product, a signal service or a fund. It is a personal engineering project:
-        an always-on process that places, tracks and reconciles real limit orders according to
-        rules I wrote, and then shows me — honestly — what those rules actually earned.
-      </p>
+      <p class="kicker">01 — Qué hace</p>
+      <h2 class="h2">Grid trading. Compra abajo, vende arriba.</h2>
 
-      <div class="cards">
-        <article class="card">
-          <span class="card__ico" aria-hidden="true">⚙</span>
-          <h3>Always on</h3>
-          <p>The engine lives in a headless Node server, not in a browser tab. Close the laptop lid on the client and the bots keep ticking every 30 seconds.</p>
-        </article>
-        <article class="card">
-          <span class="card__ico" aria-hidden="true">🗄</span>
-          <h3>One source of truth</h3>
-          <p>Every bot, order, fill, trade and event is persisted in a local SQLite file in a single atomic transaction. The database <em>is</em> the backup.</p>
-        </article>
-        <article class="card">
-          <span class="card__ico" aria-hidden="true">🔍</span>
-          <h3>Reconciled, not trusted</h3>
-          <p>Every 10 minutes EGG compares its own state against the broker and flags the result <b>Synced</b>, <b>Warning</b> or <b>Diverged</b>. Drift gets caught, not lost.</p>
-        </article>
-        <article class="card">
-          <span class="card__ico" aria-hidden="true">🩹</span>
-          <h3>Self-healing</h3>
-          <p>A failing tick is treated as transient and retried. A bot flagged <code>error</code> is not dead — it backs off and retries, so an outage heals without a human.</p>
-        </article>
-        <article class="card">
-          <span class="card__ico" aria-hidden="true">📊</span>
-          <h3>Research built in</h3>
-          <p>A grid optimizer walks historical intraday tape, sweeps candidate step sizes, and ranks tickers by net dollars per day at <em>equal capital</em> — costs and fees included.</p>
-        </article>
-        <article class="card">
-          <span class="card__ico" aria-hidden="true">🧾</span>
-          <h3>Fees are not a rounding error</h3>
-          <p>Commissions are baked into average cost and into every realized-profit number. A "winning" round trip that lost money after fees is shown as what it is: a loss.</p>
-        </article>
-      </div>
-    </div>
-  </section>
+      <div class="split">
+        <figure class="figure-frame zoomable">
+          <img src="assets/img/grid-trading.png" width="1265" height="623" loading="lazy"
+               alt="Gráfico de velas con una grilla de precios superpuesta: líneas verdes punteadas abajo del precio actual marcadas COMPRAR, líneas rojas arriba marcadas VENDER, y el precio actual en 14,87. Triángulos verdes señalan las compras que se ejecutaron en las bajadas y triángulos rojos las ventas que se ejecutaron en las subidas.">
+          <figcaption>
+            Clic para ampliar. <b>Ilustrativo</b> — no son resultados reales.
+          </figcaption>
+        </figure>
 
-  <!-- ───────────────────────── STRATEGIES ───────────────────────── -->
-  <section class="section section--alt" id="strategies">
-    <div class="wrap">
-      <p class="kicker">02 — Strategies</p>
-      <h2 class="h2">Three ways to be patient with a market.</h2>
-      <p class="lead">
-        Each strategy is a <b>pure decision function</b>: hand it a config, a state and a market
-        context, and it returns the next state plus a list of order intents. It never talks to a
-        broker, never touches a clock, never throws a network error. That is what makes it testable.
-      </p>
-
-      <div class="strats">
-        <article class="strat">
-          <header>
-            <span class="strat__num">01</span>
-            <h3>Grid</h3>
-          </header>
-          <p class="strat__sum">Slice a price range into rungs. Buy each rung on the way down, sell it one step up.</p>
-          <ul>
-            <li>A seed purchase backs the sell side; a fresh grid <b>re-anchors on the seed fill price</b>.</li>
-            <li>Every rung is an independent little machine: <code>empty → buying → selling → empty</code>.</li>
-            <li>Each completed round trip books profit net of the sell fee <em>and</em> a proportional share of the buy fee.</li>
-            <li>Self-heals every tick: a rung missing the order it should have simply places it again.</li>
-          </ul>
-        </article>
-
-        <article class="strat">
-          <header>
-            <span class="strat__num">02</span>
-            <h3>DCA</h3>
-          </header>
-          <p class="strat__sum">Buy a fixed dollar amount on a fixed schedule. No cleverness. That is the point.</p>
-          <ul>
-            <li>Hourly, daily, weekly or monthly — as many whole units as the budget buys.</li>
-            <li>Refuses to buy a fraction, and refuses to breach the configured capital ceiling.</li>
-            <li>After a long shutdown it catches up <b>once</b> — never a retroactive backlog of orders.</li>
-            <li>Running average cost is recomputed fee-inclusive on every fill.</li>
-          </ul>
-        </article>
-
-        <article class="strat">
-          <header>
-            <span class="strat__num">03</span>
-            <h3>Market Maker</h3>
-          </header>
-          <p class="strat__sum">Quote both sides of the spread and get paid for standing still.</p>
-          <ul>
-            <li>Bid and ask sit symmetrically around mid — limit orders only, never market.</li>
-            <li>Never shorts: the ask only rests while there is real inventory behind it.</li>
-            <li>The ask is floored at average cost, so capturing a spread can't quietly realize a loss.</li>
-            <li>Requotes on a timer, or immediately when mid drifts more than half a spread.</li>
-          </ul>
-        </article>
-      </div>
-
-      <p class="note">
-        There was a fourth, <code>bondiola</code> — flip a held position inside a fixed price band.
-        It went unused, so it was deleted: type, form, wizard card, command and route. Dead
-        strategies are worse than no strategy.
-      </p>
-    </div>
-  </section>
-
-  <!-- ───────────────────────── HOW ───────────────────────── -->
-  <section class="section" id="how">
-    <div class="wrap">
-      <p class="kicker">03 — How it works</p>
-      <h2 class="h2">One engine. One writer. One transaction.</h2>
-
-      <div class="how">
-        <div class="how__diagram" role="img" aria-label="Architecture: a browser thin client talks over REST and SSE to a Node server that runs the trading engine, persists to SQLite, and calls the broker API.">
-          <div class="box box--client">
-            <h4>Browser · thin client</h4>
-            <p>React + charts</p>
-            <p class="muted">reads over HTTP · live quotes over SSE</p>
-            <p class="muted">no engine here</p>
-          </div>
-          <div class="wire"><span>REST + SSE</span></div>
-          <div class="box box--server">
-            <h4>Node server · always on</h4>
-            <p>Trading engine + scheduler</p>
-            <p>Bot service · price feed · reconciliation</p>
-            <p class="muted">SQLite (WAL) — source of truth</p>
-            <p class="muted">calls the broker API directly</p>
-          </div>
-        </div>
-
-        <ol class="ticks">
-          <li>
-            <b>Poll.</b> Every 30 seconds the engine fetches fresh quotes and the broker's list of
-            resting orders.
-          </li>
-          <li>
-            <b>Detect fills.</b> Fills — including partial ones — are applied to the position
-            <em>before</em> any strategy runs, so a strategy always decides against reality.
-          </li>
-          <li>
-            <b>Decide.</b> The pure strategy function returns the next state, the order intents and
-            the events to log. No side effects.
-          </li>
-          <li>
-            <b>Execute.</b> The engine places or cancels orders against a <code>BrokerProvider</code>
-            port. It does not know or care which broker is on the other end.
-          </li>
-          <li>
-            <b>Commit.</b> State, orders, trades and events land in SQLite in one atomic write. A
-            crash mid-tick resumes cleanly; nothing is half-applied.
-          </li>
-        </ol>
-      </div>
-
-      <div class="rules">
-        <h3 class="h3">Rules the whole thing is built on</h3>
-        <div class="rules__grid">
-          <div class="rule">
-            <h4>Single writer, above all else</h4>
-            <p>Exactly one engine may tick, and the server is that engine. Two engines on one live account means double-placed real orders — so there is only ever one.</p>
-          </div>
-          <div class="rule">
-            <h4>Orders are referenced by tag</h4>
-            <p><code>grid-buy-3</code>, <code>dca-buy</code>, <code>mm-bid</code> — never by broker id. Runtime state stays plain JSON, which is why it survives a restart.</p>
-          </div>
-          <div class="rule">
-            <h4>The broker is a peer, not the truth</h4>
-            <p>SQLite holds the truth; broker data is used to <em>check</em> it. Disagreement raises a reconciliation flag instead of silently overwriting history.</p>
-          </div>
-          <div class="rule">
-            <h4>Nothing is ever deleted</h4>
-            <p>Resetting a bot archives the cycle and starts the strategy over. Trades, events and snapshots are kept — the record outlives the experiment that produced it.</p>
-          </div>
+        <div class="split__copy">
+          <p class="lead">
+            El Gordo no adivina para dónde va el mercado: aprovecha que se mueve. Deja las órdenes
+            puestas de antemano y espera a que el precio venga a buscarlas.
+          </p>
+          <p class="prose">
+            Cada línea verde es una compra esperando abajo; cada roja, una venta esperando arriba.
+            Baja y toca verde: compra. Sube y toca roja: vende. Los triangulitos son eso.
+          </p>
+          <p class="prose">
+            No lee noticias, no tiene corazonadas y no le importa el titular de hoy. Hace siempre
+            lo mismo.
+          </p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ───────────────────────── STACK ───────────────────────── -->
-  <section class="section section--alt" id="stack">
-    <div class="wrap">
-      <p class="kicker">04 — Under the hood</p>
-      <h2 class="h2">Ports and adapters, taken seriously.</h2>
-      <p class="lead">
-        EGG started as a browser-only app with the engine in a tab. Moving it server-side was ops,
-        not a rewrite: the pure domain ran unchanged in Node, and only the persistence adapter and
-        the UI's data layer had to change. That is the whole argument for the architecture, and it
-        got tested for real.
-      </p>
-
-      <div class="layers">
-        <div class="layer">
-          <h4><code>domain/</code></h4>
-          <p>Pure TypeScript. Engine, strategies, state machine, analytics, reconciliation, research math — and the ports. Forbidden by lint rule from importing React, HTTP or any database.</p>
-        </div>
-        <div class="layer">
-          <h4><code>application/</code></h4>
-          <p>Composition root and engine wiring. Bot service, price feed, MEP and account-value services, API metering.</p>
-        </div>
-        <div class="layer">
-          <h4><code>infrastructure/</code></h4>
-          <p>The adapters: SQLite persistence and the broker client. Swapping brokers touches two files, because everything upstream depends only on the port.</p>
-        </div>
-        <div class="layer">
-          <h4><code>server/</code></h4>
-          <p>Node entrypoint. Boots the services against SQLite, mounts the REST + SSE API, serves the client, shuts down gracefully.</p>
-        </div>
-        <div class="layer">
-          <h4><code>ui/</code></h4>
-          <p>React, a query cache and charts. A pure HTTP client — it renders what the server says and has no opinions of its own.</p>
-        </div>
-      </div>
-
-      <ul class="chips" aria-label="Technologies">
-        <li>TypeScript</li><li>Node</li><li>Express</li><li>SQLite · WAL</li>
-        <li>React</li><li>Server-Sent Events</li><li>Vitest</li><li>Vite</li>
-      </ul>
-
-      <div class="deploy">
-        <h3 class="h3">Where it lives</h3>
-        <p>
-          A spare laptop that never sleeps, reachable only over a private mesh network. Access
-          control is network membership — the server is not exposed to the public internet, and it
-          is not going to be. Credentials live in one environment file and never touch the
-          database or a backup.
-        </p>
-      </div>
+  <!-- ───────────────────────── CREDO ───────────────────────── -->
+  <section class="creed" aria-label="El credo del Gordo">
+    <div class="wrap creed__inner">
+      <p class="creed__quote">Comprar barato.<br>Vender caro.<br>Reírse siempre.</p>
+      <p class="creed__attr">— El Gordo Gekko</p>
     </div>
   </section>
 
   <!-- ───────────────────────── GECKO ───────────────────────── -->
   <section class="section" id="gecko">
     <div class="wrap">
-      <p class="kicker">05 — The Fat Gecko</p>
-      <h2 class="h2">Bottom-right corner. Guardian of the bots.</h2>
-      <p class="lead">
-        Every serious system deserves one unserious feature. He reacts to fills, errors and resets,
-        and dispenses questionable financial wisdom every few minutes. He can be muted in Settings,
-        but he will remember.
+      <p class="kicker">02 — El origen</p>
+      <h2 class="h2">Conocé al Gordo Gekko.</h2>
+      <p class="prose">
+        En 1987 Oliver Stone estrenó <cite>Wall Street</cite> y <b>Michael Douglas</b> se puso el
+        traje de <b>Gordon Gekko</b>: el tiburón de peinado impecable que explicaba, sin pestañear,
+        que la codicia es buena. Se ganó un Oscar haciendo de villano y terminó siendo, sin
+        proponérselo, el póster de toda una industria.
+      </p>
+      <p class="prose">
+        Pero este es <b>El Gordo Gekko</b>, y es bien Argento. Le sobra confianza, le falta capital,
+        desconfía del peso por default y jamás se pierde un asado por una vela roja. Gordon Gekko
+        quería el mundo para él. El Gordo Gekko quiere que la grilla cierre el round trip antes del
+        almuerzo para ir a dormir la siesta.
+      </p>
+      <p class="prose">
+        Vive abajo a la derecha de la pantalla, porque todo sistema serio se merece una función
+        poco seria. Reacciona a las ejecuciones, a los errores y a los reseteos, y reparte
+        sabiduría financiera dudosa cada un par de minutos. Se lo puede silenciar en
+        Configuración, pero se va a acordar.
       </p>
 
       <div class="gallery" id="gallery">
         <figure class="shot">
           <img src="assets/img/gekko-street.png" loading="lazy" width="1086" height="1448"
-               alt="A small ragged gecko presses a hand against the rain-streaked window of Gekko Capital Investments, watching a prosperous gecko inside; a cardboard sign reads 'algún día seré rico'.">
-          <figcaption><b>Someday</b> — where everyone starts.</figcaption>
+               alt="Un gecko chiquito y harapiento apoya la mano contra la ventana mojada por la lluvia de Gekko Capital Investments, mirando a un gecko próspero adentro; un cartel de cartón dice 'algún día seré rico'.">
+          <figcaption><b>Algún día</b> — donde todos empiezan.</figcaption>
         </figure>
         <figure class="shot">
           <img src="assets/img/gekko-golf.png" loading="lazy" width="1484" height="1060"
-               alt="The gecko mid golf swing at sunset, with a branded billboard reading buy low, sell high, laugh always.">
-          <figcaption><b>Discipline</b> — the strategy runs itself.</figcaption>
+               alt="El gecko en plena tirada de golf al atardecer, con un cartel publicitario que dice comprar barato, vender caro, reírse siempre.">
+          <figcaption><b>Disciplina</b> — la estrategia corre sola.</figcaption>
         </figure>
         <figure class="shot">
           <img src="assets/img/gekko-sauna.png" loading="lazy" width="1122" height="1402"
-               alt="The gecko relaxing in a sauna with a plaque reading discipline, patience, control, profits, and a phone showing a green chart.">
-          <figcaption><b>Patience</b> — the hard part.</figcaption>
+               alt="El gecko relajado en un sauna con una placa que dice disciplina, paciencia, control, ganancias, y un teléfono que muestra un gráfico en verde.">
+          <figcaption><b>Paciencia</b> — la parte difícil.</figcaption>
         </figure>
         <figure class="shot">
           <img src="assets/img/gekko-jet.png" loading="lazy" width="1122" height="1402"
-               alt="The gecko in sunglasses walking away from a private jet with branded luggage full of cash.">
-          <figcaption><b>Ambition</b> — strictly hypothetical.</figcaption>
+               alt="El gecko con anteojos negros alejándose de un jet privado con valijas de marca llenas de efectivo.">
+          <figcaption><b>Ambición</b> — hipotética.</figcaption>
         </figure>
       </div>
-      <p class="note">Yes, the gecko is aspirational. No, the returns are not.</p>
+      <p class="note">Sí, el gecko es aspiracional. No, los retornos no lo son.</p>
+    </div>
+  </section>
+
+  <!-- ───────────────────────── AUTOR ───────────────────────── -->
+  <section class="section section--alt" id="autor">
+    <div class="wrap autor">
+      <figure class="autor__pic">
+        <img src="assets/img/mariano-simpson.png" width="181" height="206" loading="lazy"
+             alt="MNB dibujado como personaje de Los Simpson: pelo negro, barba, anteojos y sweater amarillo, saludando con la mano.">
+        <figcaption>Yo, en amarillo.</figcaption>
+      </figure>
+
+      <div class="autor__copy">
+        <p class="kicker">03 — Quién está atrás</p>
+        <h2 class="h2">El Gordo Compu</h2>
+        <p class="prose">
+          El Gordo Gekko se lleva los aplausos y las frases hechas. Yo soy el que mira por qué una
+          orden no entró, el que discute con la API un domingo, y el único usuario que este sistema
+          va a tener.
+        </p>
+      </div>
     </div>
   </section>
 
@@ -364,26 +199,27 @@
   <section class="section section--status" id="status">
     <div class="wrap">
       <div class="status">
-        <p class="kicker">06 — Availability</p>
-        <h2 class="h2">This is an experiment. It is not available to the public.</h2>
+        <p class="kicker">04 — Disponibilidad</p>
+        <h2 class="h2">Esto es un experimento. No está disponible al público.</h2>
 
         <div class="status__body">
           <p>
-            There is no sign-up, no waitlist, no download, no invite, and no paid tier. EGG runs on
-            one machine, against one brokerage account, for one person. It was built to answer a
-            question I had about market microstructure and my own discipline — not to be sold.
+            No hay registro, ni lista de espera, ni descarga, ni invitación, ni plan pago. EGG corre
+            en una máquina, contra una cuenta de broker, para una persona. Lo construí para
+            responder una pregunta que tenía sobre la microestructura del mercado y sobre mi propia
+            disciplina, no para venderlo.
           </p>
           <ul class="status__list">
-            <li><span class="x">✕</span> Not a licensed or registered financial service of any kind.</li>
-            <li><span class="x">✕</span> Not investment advice, a recommendation, or a performance claim.</li>
-            <li><span class="x">✕</span> Not multi-tenant — the entire design assumes a single user and a single writer.</li>
-            <li><span class="x">✕</span> Not audited, not battle-tested, and not something to point at real money you need.</li>
-            <li><span class="check">✓</span> A real system placing real orders, which is exactly why the caution above is not boilerplate.</li>
+            <li><span class="x">✕</span> No es un servicio financiero licenciado ni registrado de ningún tipo.</li>
+            <li><span class="x">✕</span> No es asesoramiento de inversión, ni una recomendación, ni una promesa de rendimiento.</li>
+            <li><span class="x">✕</span> No es multiusuario: todo el diseño asume un solo usuario y un solo escritor.</li>
+            <li><span class="x">✕</span> No está auditado, no está curtido en batalla, y no es algo para apuntarle plata real que necesitás.</li>
+            <li><span class="check">✓</span> Es un sistema real colocando órdenes reales, y justamente por eso la advertencia de arriba no es relleno.</li>
           </ul>
           <p class="status__foot">
-            Automated trading can lose money quickly, including more than you planned to risk.
-            Anything described on this page is a description of a personal project, nothing more.
-            If that changes, this page will say so.
+            El trading automático puede perder plata rápido, incluso más de lo que planeabas
+            arriesgar. Todo lo que se describe en esta página es la descripción de un proyecto
+            personal, nada más. Si eso cambia, esta página lo va a decir.
           </p>
         </div>
       </div>
@@ -398,13 +234,14 @@
       <span class="brand__crown" aria-hidden="true">♛</span>
       <span>EL GORDO <b>GEKKO</b></span>
     </div>
-    <p class="footer__note">A personal trading-bot experiment. Not a product, not advice, not for sale.</p>
-    <p class="footer__copy">© <span id="year">2026</span> · Built for one user, one account, one gecko.</p>
+    <p class="footer__slogan">Comprar barato. Vender caro. Reírse siempre.</p>
+    <p class="footer__note">Un experimento personal de trading automático, sobre la API de IOL. No es un producto, no es asesoramiento, no está en venta.</p>
+    <p class="footer__copy">© <span id="year">2026</span> · <b>por MNB</b> · un usuario, una cuenta, un gecko.</p>
   </div>
 </footer>
 
 <div class="lightbox" id="lightbox" hidden>
-  <button class="lightbox__close" id="lightboxClose" aria-label="Close image">✕</button>
+  <button class="lightbox__close" id="lightboxClose" aria-label="Cerrar imagen">✕</button>
   <img id="lightboxImg" src="" alt="">
 </div>
 
