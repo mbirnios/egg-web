@@ -1,0 +1,7 @@
+# El Gordo Gekko — www.elgordogekko.com.ar
+# Sitio de una sola página. Todo es público y rastreable.
+
+User-agent: *
+Allow: /
+
+Sitemap: https://www.elgordogekko.com.ar/sitemap.xml

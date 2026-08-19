@@ -54,3 +54,31 @@ python -m http.server 8080
 negra en el borde derecho y otra gris/negra abajo, así que la página usa
 `assets/img/mariano-simpson.png`: el mismo dibujo recortado (181×206), con los bordes limpios y unos
 píxeles de aire abajo para que apoye los pies dentro del marco. El original se dejó en el repo.
+
+## SEO
+
+Archivos en la raíz: `robots.txt` (apunta al sitemap), `sitemap.xml` (una URL + extensión de
+imágenes), `.nojekyll` (que GitHub Pages no procese el sitio con Jekyll), `404.html` (Pages la sirve
+sola; va con `noindex`) y `CNAME`.
+
+En el `<head>` de `index.html`: `canonical` a `https://www.elgordogekko.com.ar/`, `meta robots` con
+`max-image-preview:large`, Open Graph + Twitter Card completos apuntando a `assets/img/og-card.jpg`
+(1200×630, JPEG porque varios scrapers no leen WebP), y un bloque JSON-LD con cuatro nodos:
+`WebSite`, `WebPage`, `Person` y `SoftwareApplication`.
+
+El nodo `SoftwareApplication` incluye `disambiguatingDescription`, que es la pieza pensada
+específicamente para el problema de que Google corrija "el gordo gekko" por "Gordon Gekko": dice
+explícitamente que el nombre es un guiño a la película pero que el proyecto no tiene relación con
+ella. La sección §02 del sitio hace lo mismo en prosa, que es lo que Google efectivamente lee.
+
+### Imágenes
+
+Los PNG originales quedaron en `assets/img/` pero **la página ya no los referencia** (excepto
+`mariano-simpson.png`). Se sirven WebP con dos variantes por imagen (`-sm` y completa) vía
+`srcset`/`sizes`. La primera pantalla pasó de ~3.000 KB a ~137 KB en móvil y ~286 KB en desktop.
+
+Si se reemplaza o agrega arte, hay que regenerar los WebP; el criterio usado fue: hero 1000 px q78,
+grilla 1265 px q88 (tiene texto fino), galería 1200 px q80, variantes `-sm` a 560/700/420 px.
+
+Las imágenes ampliables llevan `data-full` con la ruta del WebP grande, porque el lightbox tomaba
+`currentSrc` y con `srcset` eso podía ser la variante chica.

@@ -1,25 +1,109 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es-AR">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>El Gordo Gekko — un experimento personal de trading automático</title>
-<meta name="description" content="El Gordo Gekko (EGG) es una plataforma personal de trading bots para un solo usuario: un motor headless que hace grid trading contra una cuenta real, operando a través de la API de IOL (Invertir Online). Un experimento — no está disponible al público. Por MNB.">
+
+<title>El Gordo Gekko — bot de grid trading | Experimento personal</title>
+<meta name="description" content="El Gordo Gekko (EGG) es un bot personal de grid trading que opera sobre la API de IOL (Invertir Online). Un experimento, no un producto.">
+<link rel="canonical" href="https://www.elgordogekko.com.ar/">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta name="googlebot" content="index, follow">
 <meta name="author" content="MNB">
 <meta name="theme-color" content="#0d0b09">
+<meta name="color-scheme" content="dark">
 
 <meta property="og:type" content="website">
+<meta property="og:site_name" content="El Gordo Gekko">
 <meta property="og:locale" content="es_AR">
-<meta property="og:title" content="El Gordo Gekko — un experimento personal de trading automático">
-<meta property="og:description" content="Comprar barato. Vender caro. Reírse siempre. Un motor headless que hace grid trading sobre la API de IOL (Invertir Online). Un experimento — no está disponible al público.">
-<meta property="og:image" content="assets/img/el-gordo-gekko.png">
+<meta property="og:url" content="https://www.elgordogekko.com.ar/">
+<meta property="og:title" content="El Gordo Gekko — bot de grid trading">
+<meta property="og:description" content="Comprar barato. Vender caro. Reírse siempre. Un bot personal de grid trading sobre la API de IOL (Invertir Online). Un experimento — no está disponible al público.">
+<meta property="og:image" content="https://www.elgordogekko.com.ar/assets/img/og-card.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="El Gordo Gekko: un gecko de traje, anteojos negros y habano frente a pantallas de trading, con el nombre El Gordo Gekko escrito al costado.">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="El Gordo Gekko — bot de grid trading">
+<meta name="twitter:description" content="Comprar barato. Vender caro. Reírse siempre. Un bot personal de grid trading sobre la API de IOL (Invertir Online).">
+<meta name="twitter:image" content="https://www.elgordogekko.com.ar/assets/img/og-card.jpg">
+<meta name="twitter:image:alt" content="El Gordo Gekko: un gecko de traje frente a pantallas de trading.">
 
 <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
-<link rel="preload" as="image" href="assets/img/el-gordo-gekko.png">
+<link rel="preload" as="image" href="assets/img/el-gordo-gekko.webp"
+      imagesrcset="assets/img/el-gordo-gekko-sm.webp 560w, assets/img/el-gordo-gekko.webp 1000w"
+      imagesizes="(max-width: 1000px) min(92vw, 560px), 48vw" fetchpriority="high">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/styles.css">
+<link rel="sitemap" type="application/xml" href="/sitemap.xml">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://www.elgordogekko.com.ar/#website",
+      "url": "https://www.elgordogekko.com.ar/",
+      "name": "El Gordo Gekko",
+      "alternateName": ["EGG", "Gordo Gekko", "El Gordo Gekko (EGG)"],
+      "description": "Sitio del proyecto El Gordo Gekko (EGG), un bot personal de grid trading que opera sobre la API de IOL (Invertir Online).",
+      "inLanguage": "es-AR",
+      "author": { "@id": "https://www.elgordogekko.com.ar/#autor" },
+      "publisher": { "@id": "https://www.elgordogekko.com.ar/#autor" }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://www.elgordogekko.com.ar/#webpage",
+      "url": "https://www.elgordogekko.com.ar/",
+      "name": "El Gordo Gekko — bot de grid trading",
+      "isPartOf": { "@id": "https://www.elgordogekko.com.ar/#website" },
+      "about": { "@id": "https://www.elgordogekko.com.ar/#egg" },
+      "inLanguage": "es-AR",
+      "primaryImageOfPage": {
+        "@type": "ImageObject",
+        "url": "https://www.elgordogekko.com.ar/assets/img/og-card.jpg",
+        "width": 1200,
+        "height": 630
+      },
+      "mentions": [
+        {
+          "@type": "Movie",
+          "name": "Wall Street",
+          "datePublished": "1987",
+          "director": { "@type": "Person", "name": "Oliver Stone" }
+        }
+      ]
+    },
+    {
+      "@type": "Person",
+      "@id": "https://www.elgordogekko.com.ar/#autor",
+      "name": "MNB",
+      "url": "https://www.elgordogekko.com.ar/",
+      "sameAs": ["https://github.com/mbirnios"]
+    },
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://www.elgordogekko.com.ar/#egg",
+      "name": "El Gordo Gekko",
+      "alternateName": "EGG",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "Node.js",
+      "inLanguage": "es-AR",
+      "url": "https://www.elgordogekko.com.ar/",
+      "image": "https://www.elgordogekko.com.ar/assets/img/og-card.jpg",
+      "creator": { "@id": "https://www.elgordogekko.com.ar/#autor" },
+      "description": "Bot personal de grid trading para un solo usuario. Deja órdenes límite puestas de antemano en una grilla de precios y opera sobre la API de IOL (Invertir Online). No está disponible al público y no es un servicio financiero.",
+      "disambiguatingDescription": "El Gordo Gekko es un proyecto personal argentino de software de trading automático. El nombre es un guiño a Gordon Gekko, el personaje de Michael Douglas en la película Wall Street (1987), pero el proyecto no tiene relación con la película, con el personaje ni con ninguna entidad financiera.",
+      "keywords": "el gordo gekko, EGG, grid trading, bot de trading, IOL, Invertir Online, trading automático, Argentina"
+    }
+  ]
+}
+</script>
 </head>
 <body>
 
@@ -70,9 +154,11 @@
       </div>
 
       <figure class="hero__art">
-        <img src="assets/img/el-gordo-gekko.png"
+        <img src="assets/img/el-gordo-gekko.webp"
+             srcset="assets/img/el-gordo-gekko-sm.webp 560w, assets/img/el-gordo-gekko.webp 1000w"
+             sizes="(max-width: 1000px) min(92vw, 560px), 48vw"
              alt="El Gordo Gekko: un gecko corpulento de traje, anteojos negros y habano, recostado en un sillón de cuero frente a pantallas de trading mientras llueven billetes de dólar."
-             width="1254" height="1254" fetchpriority="high">
+             width="1000" height="1000" fetchpriority="high" decoding="async">
         <figcaption>Comprar barato. Vender caro. Reírse siempre.</figcaption>
       </figure>
 
@@ -87,11 +173,15 @@
   <section class="section section--alt" id="what">
     <div class="wrap">
       <p class="kicker">01 — Qué hace</p>
-      <h2 class="h2">Grid trading. Compra abajo, vende arriba.</h2>
+      <h2 class="h2">Grid trading. Comprar abajo, vender arriba.</h2>
 
       <div class="split">
         <figure class="figure-frame zoomable">
-          <img src="assets/img/grid-trading.png" width="1265" height="623" loading="lazy"
+          <img src="assets/img/grid-trading.webp"
+               srcset="assets/img/grid-trading-sm.webp 700w, assets/img/grid-trading.webp 1265w"
+               sizes="(max-width: 1000px) 92vw, 52vw"
+               data-full="assets/img/grid-trading.webp"
+               width="1265" height="623" loading="lazy" decoding="async"
                alt="Gráfico de velas con una grilla de precios superpuesta: líneas verdes punteadas abajo del precio actual marcadas COMPRAR, líneas rojas arriba marcadas VENDER, y el precio actual en 14,87. Triángulos verdes señalan las compras que se ejecutaron en las bajadas y triángulos rojos las ventas que se ejecutaron en las subidas.">
           <figcaption>
             Clic para ampliar. <b>Ilustrativo</b> — no son resultados reales.
@@ -150,22 +240,38 @@
 
       <div class="gallery" id="gallery">
         <figure class="shot">
-          <img src="assets/img/gekko-street.png" loading="lazy" width="1086" height="1448"
+          <img src="assets/img/gekko-street.webp"
+               srcset="assets/img/gekko-street-sm.webp 420w, assets/img/gekko-street.webp 900w"
+               sizes="(max-width: 760px) 45vw, 25vw"
+               data-full="assets/img/gekko-street.webp"
+               width="900" height="1200" loading="lazy" decoding="async"
                alt="Un gecko chiquito y harapiento apoya la mano contra la ventana mojada por la lluvia de Gekko Capital Investments, mirando a un gecko próspero adentro; un cartel de cartón dice 'algún día seré rico'.">
           <figcaption><b>Algún día</b> — donde todos empiezan.</figcaption>
         </figure>
         <figure class="shot">
-          <img src="assets/img/gekko-golf.png" loading="lazy" width="1484" height="1060"
+          <img src="assets/img/gekko-golf.webp"
+               srcset="assets/img/gekko-golf-sm.webp 420w, assets/img/gekko-golf.webp 1200w"
+               sizes="(max-width: 760px) 45vw, 25vw"
+               data-full="assets/img/gekko-golf.webp"
+               width="1200" height="857" loading="lazy" decoding="async"
                alt="El gecko en plena tirada de golf al atardecer, con un cartel publicitario que dice comprar barato, vender caro, reírse siempre.">
           <figcaption><b>Disciplina</b> — la estrategia corre sola.</figcaption>
         </figure>
         <figure class="shot">
-          <img src="assets/img/gekko-sauna.png" loading="lazy" width="1122" height="1402"
+          <img src="assets/img/gekko-sauna.webp"
+               srcset="assets/img/gekko-sauna-sm.webp 420w, assets/img/gekko-sauna.webp 960w"
+               sizes="(max-width: 760px) 45vw, 25vw"
+               data-full="assets/img/gekko-sauna.webp"
+               width="960" height="1200" loading="lazy" decoding="async"
                alt="El gecko relajado en un sauna con una placa que dice disciplina, paciencia, control, ganancias, y un teléfono que muestra un gráfico en verde.">
           <figcaption><b>Paciencia</b> — la parte difícil.</figcaption>
         </figure>
         <figure class="shot">
-          <img src="assets/img/gekko-jet.png" loading="lazy" width="1122" height="1402"
+          <img src="assets/img/gekko-jet.webp"
+               srcset="assets/img/gekko-jet-sm.webp 420w, assets/img/gekko-jet.webp 960w"
+               sizes="(max-width: 760px) 45vw, 25vw"
+               data-full="assets/img/gekko-jet.webp"
+               width="960" height="1200" loading="lazy" decoding="async"
                alt="El gecko con anteojos negros alejándose de un jet privado con valijas de marca llenas de efectivo.">
           <figcaption><b>Ambición</b> — hipotética.</figcaption>
         </figure>
@@ -204,23 +310,15 @@
 
         <div class="status__body">
           <p>
-            No hay registro, ni lista de espera, ni descarga, ni invitación, ni plan pago. EGG corre
-            en una máquina, contra una cuenta de broker, para una persona. Lo construí para
-            responder una pregunta que tenía sobre la microestructura del mercado y sobre mi propia
-            disciplina, no para venderlo.
+            No hay registro, ni lista de espera, ni descarga, ni invitación, ni plan pago.
+            EGG corre en una máquina, contra una cuenta de broker, para una persona.
           </p>
           <ul class="status__list">
             <li><span class="x">✕</span> No es un servicio financiero licenciado ni registrado de ningún tipo.</li>
             <li><span class="x">✕</span> No es asesoramiento de inversión, ni una recomendación, ni una promesa de rendimiento.</li>
             <li><span class="x">✕</span> No es multiusuario: todo el diseño asume un solo usuario y un solo escritor.</li>
-            <li><span class="x">✕</span> No está auditado, no está curtido en batalla, y no es algo para apuntarle plata real que necesitás.</li>
-            <li><span class="check">✓</span> Es un sistema real colocando órdenes reales, y justamente por eso la advertencia de arriba no es relleno.</li>
+            <li><span class="check">✓</span> Es un sistema real colocando órdenes reales.</li>
           </ul>
-          <p class="status__foot">
-            El trading automático puede perder plata rápido, incluso más de lo que planeabas
-            arriesgar. Todo lo que se describe en esta página es la descripción de un proyecto
-            personal, nada más. Si eso cambia, esta página lo va a decir.
-          </p>
         </div>
       </div>
     </div>
@@ -236,7 +334,7 @@
     </div>
     <p class="footer__slogan">Comprar barato. Vender caro. Reírse siempre.</p>
     <p class="footer__note">Un experimento personal de trading automático, sobre la API de IOL. No es un producto, no es asesoramiento, no está en venta.</p>
-    <p class="footer__copy">© <span id="year">2026</span> · <b>por MNB</b> · un usuario, una cuenta, un gecko.</p>
+    <p class="footer__copy">© <span id="year">2026</span> · <b>por MNB</b> · un usuario, una cuenta, un gekko.</p>
   </div>
 </footer>
 

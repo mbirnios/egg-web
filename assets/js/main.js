@@ -109,7 +109,7 @@
   function openLightbox(img) {
     if (!lightbox || !lightboxImg) return;
     lastFocus = document.activeElement;
-    lightboxImg.src = img.currentSrc || img.src;
+    lightboxImg.src = img.getAttribute('data-full') || img.currentSrc || img.src;
     lightboxImg.alt = img.alt;
     lightbox.hidden = false;
     document.body.style.overflow = 'hidden';
